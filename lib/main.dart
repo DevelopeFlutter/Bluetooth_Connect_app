@@ -39,13 +39,13 @@ class _MyHomePageState extends State<MyHomePage> {
     bluetoothPermission();
     super.initState();
   }
+
   void bluetoothPermission()async{
-    print('This is Called');
+    log('This is Called');
     if (await Permission.bluetooth.isDenied) {
       await Permission.bluetoothConnect.request();
       var v = await Permission.bluetooth.status;
-      print('$v This is the status now ');
-
+      log('$v This is the status now ');
     }
   }
 
@@ -60,7 +60,6 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: [
           ElevatedButton(
             onPressed: ()async  {
-
               FlutterBluePlus.instance.turnOn();
             },
             child: const Text('Turned off'),
